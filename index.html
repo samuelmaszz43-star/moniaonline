@@ -9,6 +9,19 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
   <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+  <!-- TikTok Pixel Code Start -->
+  <script>
+  !function (w, d, t) {
+    w.TiktokAnalyticsObject=t;var ttq=w[t]=w[t]||[];ttq.methods=["page","track","identify","instances","debug","on","off","once","ready","alias","group","enableCookie","disableCookie","holdConsent","revokeConsent","grantConsent"],ttq.setAndDefer=function(t,e){t[e]=function(){t.push([e].concat(Array.prototype.slice.call(arguments,0)))}};for(var i=0;i<ttq.methods.length;i++)ttq.setAndDefer(ttq,ttq.methods[i]);ttq.instance=function(t){for(
+  var e=ttq._i[t]||[],n=0;n<ttq.methods.length;n++)ttq.setAndDefer(e,ttq.methods[n]);return e},ttq.load=function(e,n){var r="https://analytics.tiktok.com/i18n/pixel/events.js",o=n&&n.partner;ttq._i=ttq._i||{},ttq._i[e]=[],ttq._i[e]._u=r,ttq._t=ttq._t||{},ttq._t[e]=+new Date,ttq._o=ttq._o||{},ttq._o[e]=n||{};n=document.createElement("script")
+  ;n.type="text/javascript",n.async=!0,n.src=r+"?sdkid="+e+"&lib="+t;e=document.getElementsByTagName("script")[0];e.parentNode.insertBefore(n,e)};
+
+
+    ttq.load('D9R0CIRC77UA78AD3E4G');
+    ttq.page();
+  }(window, document, 'ttq');
+  </script>
+  <!-- TikTok Pixel Code End -->
   <style>
     :root{
       --ink:#111315;
@@ -3855,7 +3868,7 @@
     function closeTrust(){els.trustModal.classList.remove("open");els.trustModal.setAttribute("aria-hidden","true");if(!els.cartDrawer.classList.contains("open")&&!els.menuDrawer.classList.contains("open"))document.body.classList.remove("locked")}
     const offerLinks=[{price:28.5,url:"https://www.molipy8trk.com/938L6R/CQR6MCG/"},{price:19.97,url:"https://www.molipy8trk.com/938L6R/CQKM4F2/"},{price:9.99,url:"https://www.molipy8trk.com/938L6R/CQD3KGL/"}];
     function productOfferLink(product){return offerLinks.find(link=>Math.abs(product.price-link.price)<0.005);}
-    function buildOfferUrl(product,state){const link=productOfferLink(product);if(!link)return "";const variant=[state.color,state.size].filter(value=>value&&value!=="One size").join(" / ");const productName=variant?`${product.title} - ${variant}`:product.title;const params=new URLSearchParams({sub5:"___D9GD9TRC77U0255M9MR0",adv1:productName,adv2:state.image||product.image});return `${link.url}?${params.toString()}`;}
+    function buildOfferUrl(product,state){const link=productOfferLink(product);if(!link)return "";const variant=[state.color,state.size].filter(value=>value&&value!=="One size").join(" / ");const productName=variant?`${product.title} - ${variant}`:product.title;const sub5=product.id==="yoshi-super-mario-galaxy-collector-s-popcorn-bucket"?"D9R0CIRC77UA78AD3E4G":"___D9GD9TRC77U0255M9MR0";const params=new URLSearchParams({sub5,adv1:productName,adv2:state.image||product.image});return `${link.url}?${params.toString()}`;}
     function addToCart(id){const product=products.find(p=>p.id===id);if(!product)return;const state=getState(product);if(product.sizes.length>1&&!state.size){document.getElementById("variantError")?.classList.add("show");return}const offerUrl=buildOfferUrl(product,state);if(offerUrl){window.location.href=offerUrl;return}cart.push({product,variant:[state.color,state.size].filter(Boolean).join(" / "),image:state.image});renderCart();openDrawer(els.cartDrawer);}
     function renderCart(){els.cartCount.textContent=cart.length;els.cartItems.innerHTML=cart.length?cart.map((item,index)=>`<div class="cart-item"><img src="${item.image}" alt="${item.product.title}"><div><strong>${item.product.title}</strong><span>${item.variant}</span></div><button data-remove="${index}">Remove</button></div>`).join(""):`<p class="hero-text">Your cart is empty.</p>`;els.cartTotal.textContent=money(cart.reduce((sum,item)=>sum+item.product.price,0));}
     function refreshIcons(){if(window.lucide)window.lucide.createIcons();}
